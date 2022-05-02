@@ -3,8 +3,14 @@ import { computed, ref } from "vue";
 
 const props = defineProps({
     entries: Array,
-    itemsPerPage: Number,
+    itemsPerPage: {
+        type: Number,
+        default: 6
+    },
 });
+
+// simple pagination, nothing fancy
+// obviously - normally I'd paginate entries in BE
 
 const currentPage = ref(1);
 const totalPages = computed( () => Math.ceil(props.entries.length / props.itemsPerPage) );

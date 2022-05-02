@@ -21672,12 +21672,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     entries: Array,
-    itemsPerPage: Number
+    itemsPerPage: {
+      type: Number,
+      "default": 6
+    }
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var props = __props;
+    var props = __props; // simple pagination, nothing fancy
+    // obviously - normally I'd paginate entries in BE
+
     var currentPage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1);
     var totalPages = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return Math.ceil(props.entries.length / props.itemsPerPage);
